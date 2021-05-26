@@ -1,0 +1,28 @@
+{
+  "events": [
+    {
+      "id": "1",
+      "vendor": "Charls",
+      "performer": "DJ PEPPE",
+      "date": "05/22/2021",
+      "time": "18:00",
+      "slug": "Event 1"
+    },
+    {
+      "id": "2",
+      "vendor": "Charls",
+      "performer": "Rubin Kaso",
+      "date": "06/22/2021",
+      "time": "18:00",
+      "slug": "Event 2"
+    },
+    {
+      "id": "3",
+      "vendor": "Charls",
+      "performer": "DJ PEPPE",
+      "date": "07/22/2021",
+      "time": "18:00",
+      "slug": "Event 2"
+    }
+  ]
+}
