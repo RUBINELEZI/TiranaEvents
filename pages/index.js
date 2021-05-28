@@ -8,7 +8,7 @@ export default function Home({res}) {
   return (
     <Layout>
         <div className={styles.gridContainer}>
-            {res.map(e => <EventItem key={e.id} vendor={e.vendor} performer={e.performer} date={e.date} time={e.time}/>)}
+            {res.map(e => <EventItem key={e.id} vendor={e.vendor} performer={e.performer} date={e.date} time={e.time} slug={e.slug} info={''}/>)}
         </div>
     </Layout>
   )
@@ -18,7 +18,6 @@ export async function getStaticProps() {
     const data = await fetch(`${API_URL}/api/events`)
     const res = await data.json()
 
-    console.log(res)
     return {
         props: {res},
         revalidate: 1
