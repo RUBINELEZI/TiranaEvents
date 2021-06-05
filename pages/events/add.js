@@ -1,7 +1,3 @@
 export default function add() {
-    return (
-        <div>
-            
-        </div>
-    )
+  return <div></div>;
 }

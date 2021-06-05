@@ -1,10 +1,9 @@
-const {events} = require('./data.json')
+const { events } = require("./data.json");
 export default (req, res) => {
-  if (req.method === 'GET'){
-    res.status(200).json(events)
-
-  }else {
-    res.setHeader('ALLOW', ['GET'])
-    res.status(405).json({message: `Method ${req.method} is not allowed!`})
+  if (req.method === "GET") {
+    res.status(200).json(events);
+  } else {
+    res.setHeader("ALLOW", ["GET"]);
+    res.status(405).json({ message: `Method ${req.method} is not allowed!` });
   }
-}
+};
