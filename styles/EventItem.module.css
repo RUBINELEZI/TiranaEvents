@@ -1,10 +1,21 @@
 .cart {
     border: 1px solid #cecece;
     border-radius: 15px;
-    padding: 10px;
-    margin: 20px 0;
+
+    margin: 30px 0;
+    display: flex;
+    box-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(166,173,201,.2);;
 }
 
 .cart:hover {
     cursor: pointer;
+}
+
+.info{
+   margin: auto;
+    text-align: center;
+}
+
+.img{
+
 }
