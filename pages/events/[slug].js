@@ -1,15 +1,22 @@
-import { useRouter } from "next/router";
 import Layout from "../../components/Layout";
-import { useState } from "react";
 import { API_URL } from "../../config";
-import EventItem from "../../components/EventItem";
-import SingleEvent from "../../components/SingleEvent";
+import Image from "next/image";
+import moment from "moment";
 
 export default function EventPage({ res }) {
   return (
     <div>
       <Layout>
-        <SingleEvent event={res[0]} />
+        <div>
+          <Image
+              src={res[0].image ? res[0].image.formats.medium.url : "/images/event-default.png"}
+              width={1000}
+              height={800}
+          />
+          <h1>{res[0].performer}</h1>
+          <p>{moment(res[0].date).format('MM/DD/YYYY') + " | " + res[0].time}</p>
+          <p>{res[0].info}</p>
+        </div>
       </Layout>
     </div>
   );
@@ -17,7 +24,7 @@ export default function EventPage({ res }) {
 
 export async function getServerSideProps({ params }) {
   const { slug } = params;
-  const data = await fetch(`${API_URL}/api/events/${slug}`);
+  const data = await fetch(`${API_URL}/events/?slug=${slug}`);
   const res = await data.json();
 
   return {

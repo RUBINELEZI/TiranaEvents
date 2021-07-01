@@ -16,7 +16,7 @@ export default function index({ res }) {
             time={e.time}
             slug={e.slug}
             info={""}
-            image={e.image}
+            image={e.image.formats.small.url}
           />
         ))}
       </div>
@@ -25,7 +25,7 @@ export default function index({ res }) {
 }
 
 export async function getStaticProps() {
-  const data = await fetch(`${API_URL}/api/events`);
+  const data = await fetch(`${API_URL}/events?_sort=date:ASC `);
   const res = await data.json();
 
   return {

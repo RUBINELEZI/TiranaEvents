@@ -2,6 +2,7 @@ import styles from "../styles/EventItem.module.css";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
+import moment from 'moment'
 
 export default function EventItem({
   vendor,
@@ -24,13 +25,13 @@ export default function EventItem({
         className={styles.img}
         src={image ? image : "/images/event-default.png"}
         width={300}
-        height={200}
+        height={220}
       />
       <div className={styles.info}>
         <h1>{vendor}</h1>
         <h3>{performer}</h3>
         <span>
-          {date} | {time}
+          {moment(date).format('MM/DD/YYYY')} | {time}
         </span>
         <p>{info}</p>
         <Link href={`events/${slug}`}>
