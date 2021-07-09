@@ -1,0 +1,42 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: .5fr .5fr .5fr 1.7fr 0.3fr;
+    gap: 10px 50px;
+    grid-template-areas:
+    ". ."
+    ". ."
+    ". ."
+    "descript descript"
+    "btn btn";
+}
+
+.descript {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-area: descript;
+}
+
+.btn {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-area: btn;
+}
+
+.container input {
+    width: 100%;
+    height: 30px;
+}
+
+.container button {
+    width: 100%;
+    height: 40px;
+}
+
+.container .descript textarea {
+    height: 300px;
+}
