@@ -16,7 +16,7 @@ export default function Home({ res }) {
             time={e.time}
             slug={e.slug}
             info={""}
-            image={e.image.formats.small.url}
+            image={e.image && e.image.formats.small.url}
           />
         ))}
       </div>
@@ -28,6 +28,7 @@ export async function getStaticProps() {
   const data = await fetch(`${API_URL}/events?_sort=date:ASC&_limit=4`);
   const res = await data.json();
 
+  console.log(res)
   return {
     props: { res: res},
     revalidate: 1,

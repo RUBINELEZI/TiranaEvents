@@ -24,7 +24,7 @@ export default function index({ res }) {
                         time={e.time}
                         slug={e.slug}
                         info={""}
-                        image={e.image.formats.small.url}
+                        image={e.image &&  e.image.formats.small.url}
                     />
                 ))}
             </div>
