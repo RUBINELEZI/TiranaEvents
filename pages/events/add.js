@@ -10,9 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function add() {
   const [values, setValues] = useState({
     name: '',
-    performers: '',
-    venue: '',
-    address: '',
+    performer: '',
+    vendor: '',
     date: '',
     time: '',
     description: '',
@@ -69,32 +68,22 @@ export default function add() {
           />
         </div>
         <div>
-          <label htmlFor='performers'>Performers</label>
+          <label htmlFor='performer'>Performers</label>
           <input
               type='text'
-              name='performers'
-              id='performers'
-              value={values.performers}
+              name='performer'
+              id='performer'
+              value={values.performer}
               onChange={handleInputChange}
           />
         </div>
         <div>
-          <label htmlFor='venue'>Venue</label>
+          <label htmlFor='vendor'>Venue</label>
           <input
               type='text'
-              name='venue'
-              id='venue'
-              value={values.venue}
-              onChange={handleInputChange}
-          />
-        </div>
-        <div>
-          <label htmlFor='address'>Address</label>
-          <input
-              type='text'
-              name='address'
-              id='address'
-              value={values.address}
+              name='vendor'
+              id='vendor'
+              value={values.vendor}
               onChange={handleInputChange}
           />
         </div>
