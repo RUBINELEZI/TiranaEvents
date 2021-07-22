@@ -58,12 +58,12 @@ export default function add() {
       <ToastContainer />
       <form onSubmit={handleSubmit} className={styles.container}>
         <div>
-          <label htmlFor="name">Event Name</label>
+          <label htmlFor='vendor'>Venue</label>
           <input
               type='text'
-              id='name'
-              name='name'
-              value={values.name}
+              name='vendor'
+              id='vendor'
+              value={values.vendor}
               onChange={handleInputChange}
           />
         </div>
@@ -74,16 +74,6 @@ export default function add() {
               name='performer'
               id='performer'
               value={values.performer}
-              onChange={handleInputChange}
-          />
-        </div>
-        <div>
-          <label htmlFor='vendor'>Venue</label>
-          <input
-              type='text'
-              name='vendor'
-              id='vendor'
-              value={values.vendor}
               onChange={handleInputChange}
           />
         </div>
