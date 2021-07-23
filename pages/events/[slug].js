@@ -5,6 +5,7 @@ import moment from "moment";
 import { useRouter} from "next/router";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Link from "next/link";
 
 export default function EventPage({ res }) {
   const router = useRouter();
@@ -27,6 +28,9 @@ export default function EventPage({ res }) {
   return (
     <div>
       <Layout>
+        <Link href={`edit/${res[0].id}`}>
+          <a href="#">Edit Event</a>
+        </Link>
         <div>
           <a href="#" style={{color: "red"}} onClick={deleteEvent}>
             Delete Event
