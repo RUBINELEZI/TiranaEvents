@@ -9,6 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import moment from "moment";
 import Image from "next/image";
+import ImageUpload from "../../../components/imageUpload";
 
 export default function edit({evt}) {
     const [values, setValues] = useState({
@@ -17,7 +18,7 @@ export default function edit({evt}) {
         vendor: evt.vendor,
         date: evt.date,
         time: evt.time,
-        description: evt.description,
+        info: evt.info,
     })
 
     const [imgPreview, setImgPreview] = useState(
@@ -58,6 +59,14 @@ export default function edit({evt}) {
             const evt = await res.json()
             router.push(`/events/${evt.slug}`)
         }
+    }
+
+    const imageUploaded = async () => {
+        const res = await fetch(`${API_URL}/events/${evt.id}`)
+        const data = await res.json();
+
+        setImgPreview(data.image.formats.thumbnail.url)
+        setShowModal(false)
     }
 
     return (
@@ -107,12 +116,12 @@ export default function edit({evt}) {
                     />
                 </div>
                 <div className={styles.descript}>
-                    <label htmlFor='description'>Event Description</label>
+                    <label htmlFor='info'>Event Description</label>
                     <textarea
                         type='text'
-                        name='description'
-                        id='description'
-                        value={values.description}
+                        name='info'
+                        id='info'
+                        value={values.info}
                         onChange={handleInputChange}
                     ></textarea>
                 </div>
@@ -129,6 +138,7 @@ export default function edit({evt}) {
 
             <Modal show={showModal} onClose={() => setShowModal(false)}>
                 Image Upload
+                <ImageUpload evtId={evt.id} imageUploaded={imageUploaded} />
             </Modal>
         </Layout>
     );
