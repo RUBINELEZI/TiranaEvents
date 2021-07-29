@@ -14,7 +14,7 @@ export default function add() {
     vendor: '',
     date: '',
     time: '',
-    description: '',
+    info: '',
   })
 
   const router = useRouter()
@@ -98,12 +98,12 @@ export default function add() {
           />
         </div>
         <div className={styles.descript}>
-          <label htmlFor='description'>Event Description</label>
+          <label htmlFor='info'>Event Description</label>
           <textarea
               type='text'
-              name='description'
-              id='description'
-              value={values.description}
+              name='info'
+              id='info'
+              value={values.info}
               onChange={handleInputChange}
           ></textarea>
         </div>
