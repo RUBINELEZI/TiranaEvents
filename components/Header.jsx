@@ -25,16 +25,21 @@ export default function Header() {
           {user ? (
             <>
               <li>
+                <Link href="account/dashboard">
+                  <a>Dashboard</a>
+                </Link>
+              </li>
+              <li>
                 <Link href="events/add">
                   <a>Add Event</a>
                 </Link>
               </li>
-                <li>
-                        <div className="btn-secondary btn-icon" onClick={logout}>
-                            {" "}
-                            <FaSignOutAlt /> Logout
-                        </div>
-                </li>
+              <li>
+                <div className="btn-secondary btn-icon" onClick={logout}>
+                  {" "}
+                  <FaSignOutAlt /> Logout
+                </div>
+              </li>
             </>
           ) : (
             <>

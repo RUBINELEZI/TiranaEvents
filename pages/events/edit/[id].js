@@ -148,7 +148,6 @@ export default function edit({evt}) {
 export async function getServerSideProps({params: {id}, req}) {
     const res = await fetch(`${API_URL}/events/${id}`);
     const evt = await res.json();
-    console.log(req.headers.cookie)
 
     return {
         props: {
