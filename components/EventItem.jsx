@@ -21,12 +21,14 @@ export default function EventItem({
   console.log(image);
   return (
     <div className={styles.cart} onClick={() => handleClick(slug)}>
-      <Image
-        className={styles.img}
-        src={image ? image : "/images/event-default.png"}
-        width={300}
-        height={220}
-      />
+      <div className='relative item-detail'>
+        <Image
+            className={styles.img}
+            src={image ? image : "/images/event-default.png"}
+            layout={'fill'} objectFit={'contain'}
+        />
+      </div>
+
       <div className={styles.info}>
         <h1>{vendor}</h1>
         <h3>{performer}</h3>

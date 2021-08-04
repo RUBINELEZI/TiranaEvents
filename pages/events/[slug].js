@@ -21,7 +21,7 @@ export default function EventPage({ res , token}) {
           Authorization: `Bearer ${token}`
         },
       });
-
+      window.close();
       const data = await req.json();
 
       if (!req.ok) {
@@ -52,15 +52,16 @@ export default function EventPage({ res , token}) {
 
         <div>
           <ToastContainer />
-          <Image
-            src={
-              res[0].image
-                ? res[0].image.formats.medium.url
-                : "/images/event-default.png"
-            }
-            width={800}
-            height={600}
-          />
+          <div className='relative slug-detail'>
+            <Image
+                src={
+                  res[0].image
+                      ? res[0].image.formats.medium.url
+                      : "/images/event-default.png"
+                }
+                layout={'fill'} objectFit={'contain'}
+            />
+          </div>
           <h1>{res[0].performer}</h1>
           <p>
             {moment(res[0].date).format("MM/DD/YYYY") + " | " + res[0].time}
@@ -77,7 +78,11 @@ export async function getServerSideProps({ params, req }) {
   const data = await fetch(`${API_URL}/events/?slug=${slug}`);
   const res = await data.json();
   const {token} = parseCookies(req)
+
   return {
-    props: { res , token},
-  };
+    props: {
+      res,
+      token
+    }
+  }
 }
