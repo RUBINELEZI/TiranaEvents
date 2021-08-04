@@ -6,8 +6,9 @@ import {useState} from "react";
 import {useRouter} from "next/router";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {parseCookies} from "@/helpers/index";
 
-export default function add() {
+export default function add({token}) {
   const [values, setValues] = useState({
     name: '',
     performer: '',
@@ -35,6 +36,7 @@ export default function add() {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
       },
       body: JSON.stringify(values),
     })
@@ -113,4 +115,13 @@ export default function add() {
       </form>
     </Layout>
   );
+}
+
+export async function getServerSideProps({req}) {
+  const {token} = parseCookies(req)
+  return {
+    props: {
+      token
+    }
+  }
 }

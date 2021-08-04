@@ -10,8 +10,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import moment from "moment";
 import Image from "next/image";
 import ImageUpload from "../../../components/imageUpload";
+import {parseCookies} from "@/helpers/index";
 
-export default function edit({evt}) {
+export default function edit({evt, token}) {
     const [values, setValues] = useState({
         name: evt.name,
         performer: evt.performer,
@@ -45,6 +46,7 @@ export default function edit({evt}) {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
             },
             body: JSON.stringify(values),
         })
@@ -138,7 +140,7 @@ export default function edit({evt}) {
 
             <Modal show={showModal} onClose={() => setShowModal(false)}>
                 Image Upload
-                <ImageUpload evtId={evt.id} imageUploaded={imageUploaded} />
+                <ImageUpload evtId={evt.id} imageUploaded={imageUploaded} token={token} />
             </Modal>
         </Layout>
     );
@@ -148,10 +150,11 @@ export default function edit({evt}) {
 export async function getServerSideProps({params: {id}, req}) {
     const res = await fetch(`${API_URL}/events/${id}`);
     const evt = await res.json();
-
+    const {token} = parseCookies(req)
     return {
         props: {
-            evt
+            evt,
+            token
         }
     }
 }
