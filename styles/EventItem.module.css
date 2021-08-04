@@ -1,7 +1,5 @@
 .cart {
   border: 1px solid #cecece;
-  border-radius: 15px;
-
   margin: 30px 0;
   display: flex;
   box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),

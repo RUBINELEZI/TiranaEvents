@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #fff;
   color: #333;
   height: 60px;
   padding: 0 30px;
@@ -25,13 +24,13 @@
 }
 
 .logo {
-  color: red;
+  color: #FFF200;
   font-size: 20px;
   text-transform: uppercase;
 }
 
 .logo a {
-  color: red;
+  color: #FFF200;
 }
 
 @media (max-width: 768px) {
