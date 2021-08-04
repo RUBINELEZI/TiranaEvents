@@ -119,3 +119,20 @@ label{
   position: relative;
 }
 
+/* Scroll bar stylings */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
