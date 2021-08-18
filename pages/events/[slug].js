@@ -77,7 +77,8 @@ export async function getServerSideProps({ params, req }) {
   const { slug } = params;
   const data = await fetch(`${API_URL}/events/?slug=${slug}`);
   const res = await data.json();
-  const {token} = parseCookies(req)
+  let {token} = parseCookies(req)
+  token = token || ''
 
   return {
     props: {

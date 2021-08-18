@@ -18,7 +18,6 @@ export default function EventItem({
     router.push(`events/${slug}`);
   };
 
-  console.log(image);
   return (
     <div className={styles.cart} onClick={() => handleClick(slug)}>
       <div className='relative item-detail'>
