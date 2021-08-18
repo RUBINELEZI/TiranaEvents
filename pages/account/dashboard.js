@@ -1,7 +1,7 @@
 import { parseCookies } from '@/helpers/index'
 import { useRouter } from 'next/router'
 import Layout from '@/components/Layout'
-import DashboardEvent from '@/components/DashboardEvent'
+import DashboardEvent from '@/components/dashboardEvent'
 import { API_URL } from '@/config/index'
 import styles from '@/styles/Dashboard.module.css'
 
