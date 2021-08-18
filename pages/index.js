@@ -29,7 +29,7 @@ export async function getStaticProps() {
   const res = await data.json();
 
   return {
-    props: { res: res},
+    props: { res },
     revalidate: 1,
   };
 }
