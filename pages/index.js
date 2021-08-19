@@ -4,11 +4,11 @@ import EventItem from "../components/EventItem";
 import styles from "../styles/EventItem.module.css";
 import {parseCookies} from "@/helpers/index";
 
-export default function Home({ events }) {
+export default function Home({ res }) {
   return (
     <Layout>
       <div className={styles.gridContainer}>
-        {events.map((e) => (
+        {res.map((e) => (
           <EventItem
             key={e.id}
             vendor={e.vendor}
@@ -26,12 +26,12 @@ export default function Home({ events }) {
 }
 
 export async function getStaticProps() {
-    const res = await fetch(`${API_URL}/events?_sort=date:ASC&_limit=3`)
-    const events = await res.json()
+    const data = await fetch(`${API_URL}/events?_sort=date:ASC&_limit=4`);
+    const res = await data.json();
 
     return {
-        props: { events },
+        props: { res },
         revalidate: 1,
-    }
+    };
 }
 
