@@ -56,7 +56,7 @@ export default function EventPage({ res , token}) {
             <Image
                 src={
                   res[0].image
-                      ? res[0].image.formats.medium.url
+                      ? res[0].image.url
                       : "/images/event-default.png"
                 }
                 layout={'fill'} objectFit={'contain'}

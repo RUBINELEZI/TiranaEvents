@@ -23,7 +23,7 @@ export default function edit({ evt, token }) {
   });
 
   const [imgPreview, setImgPreview] = useState(
-    evt.image ? evt.image.formats.thumbnail.url : null
+    evt.image ? evt.image.url : null
   );
 
   const [showModal, setShowModal] = useState(false);
@@ -69,7 +69,7 @@ export default function edit({ evt, token }) {
     const res = await fetch(`${API_URL}/events/${evt.id}`);
     const data = await res.json();
 
-    setImgPreview(data.image.formats.thumbnail.url);
+    setImgPreview(data.image.formats.url);
     setShowModal(false);
   };
 
