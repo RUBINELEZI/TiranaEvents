@@ -8,9 +8,9 @@ import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
 import AuthContext from "@/context/AuthContext";
 import { useContext } from "react";
-import {parseCookies} from "@/helpers/index";
+import { parseCookies } from "@/helpers/index";
 
-export default function EventPage({ res , token}) {
+export default function EventPage({ res, token }) {
   const router = useRouter();
   const { user } = useContext(AuthContext);
   const deleteEvent = async () => {
@@ -18,7 +18,7 @@ export default function EventPage({ res , token}) {
       const req = await fetch(`${API_URL}/events/${res[0].id}`, {
         method: "DELETE",
         headers: {
-          Authorization: `Bearer ${token}`
+          Authorization: `Bearer ${token}`,
         },
       });
       window.close();
@@ -52,14 +52,15 @@ export default function EventPage({ res , token}) {
 
         <div>
           <ToastContainer />
-          <div className='relative slug-detail'>
+          <div className="relative slug-detail">
             <Image
-                src={
-                  res[0].image.formats !== null
-                      ? res[0].image.formats.medium.url
-                      : "/images/event-default.png"
-                }
-                layout={'fill'} objectFit={'contain'}
+              src={
+                res[0].image.formats !== null
+                  ? res[0].image.formats.medium.url
+                  : "/images/event-default.png"
+              }
+              layout={"fill"}
+              objectFit={"contain"}
             />
           </div>
           <h1>{res[0].performer}</h1>
@@ -77,13 +78,13 @@ export async function getServerSideProps({ params, req }) {
   const { slug } = params;
   const data = await fetch(`${API_URL}/events/?slug=${slug}`);
   const res = await data.json();
-  let {token} = parseCookies(req)
-  token = token || ''
+  let { token } = parseCookies(req);
+  token = token || "";
 
   return {
     props: {
       res,
-      token
-    }
-  }
+      token,
+    },
+  };
 }

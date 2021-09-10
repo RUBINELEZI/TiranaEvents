@@ -133,12 +133,12 @@ export default function edit({ evt, token }) {
 
       <div>
         <h2>Event Image</h2>
-          <button
-              className={"btn btn-secondary"}
-              onClick={() => setShowModal(true)}
-          >
-              Upload new Image
-          </button>
+        <button
+          className={"btn btn-secondary"}
+          onClick={() => setShowModal(true)}
+        >
+          Upload new Image
+        </button>
         {imgPreview ? (
           <div className="relative item-detail">
             {" "}
@@ -152,9 +152,9 @@ export default function edit({ evt, token }) {
           <p>No image uploaded!</p>
         )}
       </div>
-        <div className={styles.btn}>
-            <input type="submit" className={"btn"} value="Edit Event" />
-        </div>
+      <div className={styles.btn}>
+        <input type="submit" className={"btn"} value="Edit Event" />
+      </div>
       <Modal show={showModal} onClose={() => setShowModal(false)}>
         Image Upload
         <ImageUpload
