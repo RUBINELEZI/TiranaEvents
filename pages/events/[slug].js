@@ -55,8 +55,8 @@ export default function EventPage({ res , token}) {
           <div className='relative slug-detail'>
             <Image
                 src={
-                  res[0].image
-                      ? res[0].image.url
+                  res[0].image.formats !== null
+                      ? res[0].formats.medium.url
                       : "/images/event-default.png"
                 }
                 layout={'fill'} objectFit={'contain'}
