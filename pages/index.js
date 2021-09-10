@@ -9,6 +9,7 @@ export default function Home({ res }) {
     <Layout>
       <div className={styles.gridContainer}>
         {res.map((e) => (
+
           <EventItem
             key={e.id}
             vendor={e.vendor}
@@ -17,7 +18,7 @@ export default function Home({ res }) {
             time={e.time}
             slug={e.slug}
             info={""}
-            image={e.image && e.image.url}
+            image={e.image.formats !== null && e.image.formats.medium.url}
           />
         ))}
       </div>

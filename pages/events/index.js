@@ -18,7 +18,7 @@ export default function index({ events, page, total }) {
             time={e.time}
             slug={e.slug}
             info={""}
-            image={e.image &&  e.image.url}
+            image={e.image.formats !== null && e.image.formats.medium.url}
           />
         ))}
       </div>
